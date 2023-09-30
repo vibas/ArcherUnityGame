@@ -321,7 +321,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -454,6 +454,11 @@ MonoBehaviour:
   bowString: {fileID: 51532433}
   arrowPrefab: {fileID: 7146673284362444701, guid: 5904fc2455ade2ed8917979679295825, type: 3}
   shotPoint: {fileID: 916359231}
+  shootForce: 20
+  shootForceMultiplier: 1.2
+  pointPrefab: {fileID: 4583819125418784611, guid: e7eabd6484420a3f9a773f55db790300, type: 3}
+  numberOfPoints: 50
+  spaceBetweenPoints: 0.05
 --- !u!1 &1088133343
 GameObject:
   m_ObjectHideFlags: 0
