@@ -33,6 +33,8 @@ public class Bow : MonoBehaviour
             points[i] = Instantiate(pointPrefab,transform.position, Quaternion.identity);
             points[i].SetActive(false);
         }
+
+        activeArrow = PrepareArrow();
     }
 
     // Update is called once per frame
@@ -43,19 +45,17 @@ public class Bow : MonoBehaviour
         bowDirection = mousePos - bowPos;
         transform.right = bowDirection;
 
-        if(Input.GetMouseButtonDown(0))
-        {
-            activeArrow = PrepareArrow();
-        }
-
         if(Input.GetMouseButton(0))
         {
             shootForce = mouseDistanceFromBow * shootForceMultiplier;
-
+            shootForce = Mathf.Clamp(shootForce,shootForce,21);
+            bowString.PullString(shootForce);
+            activeArrow.transform.localPosition = new Vector3(-shootForce/15f + 0.9f,0,0);
             for (int i = 0; i < numberOfPoints; i++)
             {
+                points[i].GetComponent<SpriteRenderer>().color = new Color(1,1,1,(1f-i/(float)numberOfPoints));
                 points[i].SetActive(true);
-                points[i].transform.position = PointPosition(i * spaceBetweenPoints);
+                points[i].transform.position = TrajectoryPointPosition(i * spaceBetweenPoints);
             }
         }
 
@@ -74,8 +74,8 @@ public class Bow : MonoBehaviour
 
     GameObject PrepareArrow()
     {
-        bowString.PullString();
         GameObject newArrow = Instantiate(arrowPrefab, transform);
+        newArrow.transform.localPosition = new Vector3(0.8f,0,0);
         newArrow.transform.Rotate(Vector3.forward,-90); 
         return newArrow;
     }
@@ -89,9 +89,11 @@ public class Bow : MonoBehaviour
         rb.simulated = true;
         rb.velocity = transform.right * shootForce;
         bowString.Release();
+
+        activeArrow = PrepareArrow();
     }
 
-    Vector2 PointPosition(float t)
+    Vector2 TrajectoryPointPosition(float t)
     {
         Vector2 pointPos = (Vector2)transform.position + 
                            (bowDirection.normalized * shootForce * t)

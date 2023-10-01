@@ -9,9 +9,9 @@ public class BowString : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void PullString()
+    public void PullString(float shootForce)
     {
-        lineRenderer.SetPosition(1, new Vector3(-0.78f,0,0));
+        lineRenderer.SetPosition(1, new Vector3(-shootForce/15f,0,0));
     }
 
     public void Release()

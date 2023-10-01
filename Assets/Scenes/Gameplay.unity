@@ -454,10 +454,10 @@ MonoBehaviour:
   bowString: {fileID: 51532433}
   arrowPrefab: {fileID: 7146673284362444701, guid: 5904fc2455ade2ed8917979679295825, type: 3}
   shotPoint: {fileID: 916359231}
-  shootForce: 20
-  shootForceMultiplier: 1.2
+  shootForce: 0
+  shootForceMultiplier: 1.5
   pointPrefab: {fileID: 4583819125418784611, guid: e7eabd6484420a3f9a773f55db790300, type: 3}
-  numberOfPoints: 50
+  numberOfPoints: 40
   spaceBetweenPoints: 0.05
 --- !u!1 &1088133343
 GameObject:
