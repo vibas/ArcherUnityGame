@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class BowString : MonoBehaviour
 {
     LineRenderer lineRenderer;
@@ -9,9 +8,9 @@ public class BowString : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    public void PullString(float shootForce)
+    public void Pull(float shootForce)
     {
-        lineRenderer.SetPosition(1, new Vector3(-shootForce/15f,0,0));
+        lineRenderer.SetPosition(1, new Vector3(-shootForce,0,0));
     }
 
     public void Release()
