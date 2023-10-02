@@ -3,6 +3,7 @@ using ToolBox.Pools;
 
 public class Monster : MonoBehaviour, IPoolable
 {
+    [SerializeField] GameObject deathParticlePrefab;
     public float speed = 1.0f;
    
     private Transform target; 
@@ -22,6 +23,12 @@ public class Monster : MonoBehaviour, IPoolable
         {
             gameObject.Release();
         }
+    }
+
+    public void Die()
+    {
+        deathParticlePrefab.Reuse(transform.position,Quaternion.identity);
+        gameObject.Release();        
     }
 
     public void OnReuse()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1035789536084798331}
   - component: {fileID: 7282966173478295149}
   - component: {fileID: -6268446292700411624}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79e7b8f4b8b64253ab9fb4587c8e99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticlePrefab: {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
+  speed: 1
 --- !u!50 &7282966173478295149
 Rigidbody2D:
   serializedVersion: 4
