@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trail: {fileID: 5067956229333613772}
+  waitTimeInMS: 3000
 --- !u!50 &-5278721610277758519
 Rigidbody2D:
   serializedVersion: 4

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 public class Arrow : MonoBehaviour, IPoolable
 {
     [SerializeField] GameObject trail;
+    [SerializeField] int waitTimeInMS;
     Rigidbody2D rb;
     bool isMoving = false;
 
@@ -37,7 +38,7 @@ public class Arrow : MonoBehaviour, IPoolable
 
     async Task ResetArrow()
     {
-        await Task.Delay(3000);
+        await Task.Delay(waitTimeInMS);
        
         if(this!=null)
             gameObject.Release();
