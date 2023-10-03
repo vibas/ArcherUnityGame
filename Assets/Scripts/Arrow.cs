@@ -8,16 +8,18 @@ public class Arrow : MonoBehaviour, IPoolable
     [SerializeField] int waitTimeInMS;
     [SerializeField] Transform arrowTip;
     Rigidbody2D rb;
+    [SerializeField] AudioSource audioSource;
     bool isMoving = false;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();        
         trail.SetActive(false);
     }
 
     public async void Move(Vector3 direction, float shootForce)
     {
+        audioSource.Play();
         isMoving = true;
         trail.SetActive(true);
         transform.SetParent(null);
