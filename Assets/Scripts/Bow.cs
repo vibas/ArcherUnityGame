@@ -2,9 +2,9 @@ using UnityEngine;
 using ToolBox.Pools;
 
 public class Bow : MonoBehaviour
-{
-    // ========= CAMERA USED FOR MOUSE POSITION =========
-    Camera _mainCamera;
+{    
+    Camera _mainCamera;   
+    public bool ShouldUseBow;
 
     // ========== BOW =============
     [SerializeField] BowString bowString;
@@ -35,7 +35,9 @@ public class Bow : MonoBehaviour
     }
 
     void Update()
-    {
+    {      
+        if(!ShouldUseBow) return;
+          
         SetBowDirectionBasedOnMousePosition();
         if(Input.GetMouseButton(0))
         {
